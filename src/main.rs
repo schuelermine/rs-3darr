@@ -39,9 +39,9 @@ fn main() -> ExitCode {
     let (x, y, z) = match parsed {
         Ok([x, y, z]) => (x, y, z),
         Err(Error::TooFewArguments) => return report_usage(pname),
-        Err(Error::ParseError(0, err)) => return report_parse_failure("x", err),
-        Err(Error::ParseError(1, err)) => return report_parse_failure("y", err),
+        Err(Error::ParseError(1, err)) => return report_parse_failure("x", err),
         Err(Error::ParseError(2, err)) => return report_parse_failure("y", err),
+        Err(Error::ParseError(3, err)) => return report_parse_failure("z", err),
         Err(_) => unreachable!(),
     };
     let mut counter = 0;
