@@ -11,7 +11,7 @@ enum Error {
 
 impl From<(usize, ParseIntError)> for Error {
     fn from((i, err): (usize, ParseIntError)) -> Self {
-        return Error::ParseError(i, err);
+        Error::ParseError(i, err)
     }
 }
 
