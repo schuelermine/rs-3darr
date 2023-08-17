@@ -25,9 +25,6 @@ fn report_parse_failure(arg: &str, err: ParseIntError) -> ExitCode {
 fn main() -> ExitCode {
     let mut args = std::env::args();
     let pname = args.next();
-    // let parsed =
-    //     std::array::try_from_fn(|i| args.next().map(|s| (i, s)).ok_or(Error::TooFewArguments))
-    //         .and_then(|args| args.try_map(|(i, s)| s.parse().map_err(|err| (i, err).into())));
     let args_arr: Result<[(usize, String); 3], Error> =
         std::array::try_from_fn(|i| Ok((i, args.next().ok_or(Error::TooFewArguments)?)));
     let parsed: Result<[usize; 3], Error> =
